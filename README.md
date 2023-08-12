@@ -1,3 +1,13 @@
+# Few things about this
+1. First ever my work on Graphics and ThreeJS related stuffs.
+2. For drawing line, it's not smooth. You click one point on left canvas, then another point within same canvas, it will draw a joint line between those point. If you want to draw square, click four points consecutively.
+3. In right canvas, 3D preview of the 2d Drawing will show up, camera control is also added there, you can check.
+4. Clear button will clear the drawing in the canvas.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

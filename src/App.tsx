@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {  useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { LineScene } from "./components/LineScene";
+import { Truss } from "./components/Truss";
 
-function App() {
+import * as THREE from 'three';
+
+const Scene = () => {
+  const scene = useRef<any | null>(null);
+  useFrame(() => {});
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <group ref={scene}>
+      <LineScene />
+    </group>
+  );
+};
+
+
+
+
+export default function App() {
+  return (
+  <div style = {{display: "flex", gap: "20px"}}>
+    <div style={{ width: "800px", height: "600px" }}>
+      <Canvas>
+        <color attach="background" args={[0.53, 0.81, 0.94]} />
+        <directionalLight intensity={0.5} />
+        <Scene />
+      </Canvas>
     </div>
+
+    <div style={{ width: "800px", height: "600px" }}>
+      <Canvas camera={{position: [0, 0,1]}}>
+        <color attach="background" args={[0.53, 0.81, 0.94]} />
+        <directionalLight intensity={0.5} />
+        <Truss />
+      </Canvas>
+    </div>
+
+
+
+  </div>
+
   );
 }
-
-export default App;
